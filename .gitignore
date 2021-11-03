@@ -1,0 +1,33 @@
+.DS_Store
+node_modules
+/dist
+/coverage
+
+/tests/e2e/videos/
+/tests/e2e/screenshots/
+
+# Ignore NeDB data files from node js (with test perfomance creating)
+rates-data.json
+
+# local env files
+.env
+.env.local
+.env.*.local
+public/app.config.json
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Just a notes for local code ;)
+notes.md
