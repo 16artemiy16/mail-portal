@@ -21,7 +21,7 @@ export default defineComponent({
       <AppInput placeholder="Login" class="sign-up__row" />
       <AppInput placeholder="Password" type="password" class="sign-in__row" />
       <div class="sign-up__row sign-up__actions">
-        <AppButton :link="{ name: 'SignIn' }">Sign In</AppButton>
+        <AppButton :link="{ name: 'SignIn' }" :view="'text'">Sign In</AppButton>
         <AppButton>Sign Up</AppButton>
       </div>
     </form>
