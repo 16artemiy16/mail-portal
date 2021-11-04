@@ -5,7 +5,7 @@ import AppButton from '@/components/AppButton.vue';
 import SignLayout from '@/layouts/SignLayout.vue';
 
 export default defineComponent({
-  name: 'SignIn',
+  name: 'SignUp',
   components: {
     AppInput,
     AppButton,
@@ -16,32 +16,31 @@ export default defineComponent({
 
 <template>
   <SignLayout>
-    <form class="sign-in">
+    <form class="sign-up">
       <h1>Sign In</h1>
-      <AppInput placeholder="Login" class="sign-in__row" />
+      <AppInput placeholder="Login" class="sign-up__row" />
       <AppInput placeholder="Password" type="password" class="sign-in__row" />
-      <AppInput placeholder="Repeat password" type="password" class="sign-in__row" />
-      <div class="sign-in__row sign-in__actions">
-        <AppButton :link="{ name: 'SignUp' }">Sign Up</AppButton>
-        <AppButton>Sign In</AppButton>
+      <div class="sign-up__row sign-up__actions">
+        <AppButton :link="{ name: 'SignIn' }">Sign In</AppButton>
+        <AppButton>Sign Up</AppButton>
       </div>
     </form>
   </SignLayout>
 </template>
 
-<style scoped lang="scss">
-  .sign-in {
+<style lang="scss">
+  .sign-up {
     width: 600px;
     display: flex;
     flex-direction: column;
 
     &__row {
-      margin: 1rem 0;
+       margin: 1rem 0;
     }
 
     &__actions {
-      display: flex;
-      justify-content: space-between;
+       display: flex;
+       justify-content: space-between;
     }
   }
 </style>
