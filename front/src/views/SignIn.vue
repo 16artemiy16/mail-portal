@@ -61,7 +61,6 @@ export default defineComponent<unknown, unknown, Data>({
         <AppInput
           placeholder="Password"
           type="password"
-          class="sign-in__row"
           v-model="form.password"
         />
         <template #error v-if="errors.password">{{ errors.password }}</template>
