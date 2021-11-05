@@ -33,6 +33,7 @@ export default defineComponent({
 
     &__error {
       color: indianred;
+      height: 1.5rem;
     }
   }
 </style>
