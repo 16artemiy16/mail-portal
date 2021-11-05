@@ -3,13 +3,22 @@ import { defineComponent } from 'vue';
 import AppInput from '@/components/AppInput.vue';
 import AppButton from '@/components/AppButton.vue';
 import SignLayout from '@/layouts/SignLayout.vue';
+import AppFormField from '@/components/AppFormItem.vue';
 
 export default defineComponent({
   name: 'SignIn',
   components: {
+    AppFormField,
     AppInput,
     AppButton,
     SignLayout,
+  },
+  data() {
+    return {
+      form: {
+        login: '',
+      },
+    };
   },
 });
 </script>
@@ -18,7 +27,10 @@ export default defineComponent({
   <SignLayout>
     <form class="sign-in">
       <h1>Sign In</h1>
-      <AppInput placeholder="Login" class="sign-in__row" />
+      <AppFormField class="sign-in__row">
+        <AppInput placeholder="Login" v-model="form.login"/>
+        <template #error>Login can't be empty</template>
+      </AppFormField>
       <AppInput placeholder="Password" type="password" class="sign-in__row" />
       <AppInput placeholder="Repeat password" type="password" class="sign-in__row" />
       <div class="sign-in__row sign-in__actions">
