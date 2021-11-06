@@ -16,7 +16,11 @@ export default defineComponent({
   <div class="header">
     <AppIcon class="fas fa-bars app-icon_lg" />
     <div class="header__logo">Logo</div>
-    <AppInput class="header__search" placeholder="Search in mail..." />
+    <AppInput class="header__search" placeholder="Search in mail...">
+      <template #left-icon>
+        <AppIcon class="fas fa-search"></AppIcon>
+      </template>
+    </AppInput>
     <div class="flex-spacer"></div>
     <AppIcon class="far fa-question-circle app-icon_lg mx-2" />
     <AppIcon class="fas fa-cog app-icon_lg mx-2" />
