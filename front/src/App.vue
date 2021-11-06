@@ -13,4 +13,8 @@ body {
   text-align: center;
   color: #2c3e50;
 }
+
+.flex-spacer {
+  flex: 1;
+}
 </style>

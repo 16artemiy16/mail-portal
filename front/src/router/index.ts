@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import SignIn from '@/views/SignIn.vue';
 import SignUp from '@/views/SignUp.vue';
+import Mailbox from '@/views/Mailbox.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -16,6 +17,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/guest/sign-up',
     name: 'SignUp',
     component: SignUp,
+  },
+  {
+    path: '/mail',
+    name: 'Mail',
+    component: Mailbox,
   },
 ];
 
