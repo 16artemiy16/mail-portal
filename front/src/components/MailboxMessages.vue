@@ -1,13 +1,22 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { MessageI } from '@/interfaces/message.interface';
+import MailboxMessageItem from '@/components/MailboxMessageItem.vue';
 
 export default defineComponent({
   name: 'MailboxMessages',
+  components: {
+    MailboxMessageItem,
+  },
   data() {
     return {
       messages: new Array(50).fill(null).map((_, i) => ({
-        topic: i,
-      })),
+        id: `${i}`,
+        topic: `Message number ${i}`,
+        isFavourite: false,
+        from: 'admin@test.com',
+        date: new Date(),
+      })) as MessageI[],
     };
   },
 });
@@ -15,13 +24,12 @@ export default defineComponent({
 
 <template>
   <div class="mailbox-messages">
-    <div
+    <MailboxMessageItem
       v-for="msg in messages"
-      :key="msg.topic"
       class="mailbox-messages__item"
-    >
-      {{ msg.topic }}
-    </div>
+      :key="msg.topic"
+      :message="msg"
+    />
   </div>
 </template>
 
