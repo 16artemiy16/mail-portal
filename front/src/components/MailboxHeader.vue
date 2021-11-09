@@ -1,14 +1,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import AppInput from '@/components/AppInput.vue';
-import AppIcon from '@/components/AppIcon.vue';
 
 export default defineComponent({
   name: 'MailboxHeader',
-  components: {
-    AppInput,
-    AppIcon,
-  },
 });
 </script>
 

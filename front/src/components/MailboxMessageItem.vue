@@ -1,12 +1,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import AppIcon from '@/components/AppIcon.vue';
 
 export default defineComponent({
   name: 'MailboxMessageItem',
-  components: {
-    AppIcon,
-  },
   props: {
     message: {
       type: Object,

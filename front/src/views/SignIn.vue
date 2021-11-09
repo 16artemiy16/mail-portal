@@ -1,7 +1,5 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import AppInput from '@/components/AppInput.vue';
-import AppButton from '@/components/AppButton.vue';
 import SignLayout from '@/layouts/SignLayout.vue';
 import AppFormField from '@/components/AppFormItem.vue';
 import { minLength, notEmpty, validate } from '@/utils/validator.util';
@@ -21,8 +19,6 @@ export default defineComponent<unknown, unknown, Data>({
   name: 'SignIn',
   components: {
     AppFormField,
-    AppInput,
-    AppButton,
     SignLayout,
   },
   data() {

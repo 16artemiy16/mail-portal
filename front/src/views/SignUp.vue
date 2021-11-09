@@ -1,17 +1,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import AppInput from '@/components/AppInput.vue';
-import AppButton from '@/components/AppButton.vue';
 import SignLayout from '@/layouts/SignLayout.vue';
-import AppFormField from '@/components/AppFormItem.vue';
 
 export default defineComponent({
   name: 'SignUp',
   components: {
-    AppInput,
-    AppButton,
     SignLayout,
-    AppFormField,
   },
 });
 </script>
