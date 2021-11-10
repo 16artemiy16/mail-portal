@@ -14,6 +14,7 @@ export default defineComponent({
         id: `${i}`,
         topic: `Message number ${i}`,
         isFavourite: false,
+        isUnread: i % 2 === 0,
         from: 'admin@test.com',
         date: new Date(),
       })) as MessageI[],

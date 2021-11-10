@@ -18,7 +18,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="message">
+  <div class="message" :class="{ 'message_unread': message.isUnread }">
     <input type="checkbox" class="message__marker" />
     <AppIcon class="far fa-star message__is-favourite" />
     <div class="message__from">{{ message.from }}</div>
@@ -35,6 +35,10 @@ export default defineComponent({
     user-select: none;
     cursor: pointer;
     padding: 1rem 0;
+
+    &_unread {
+      font-weight: bold;
+    }
 
     &:hover {
       box-shadow: inset 1px 0 0 #dadce0,
