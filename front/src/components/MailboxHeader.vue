@@ -3,12 +3,13 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'MailboxHeader',
+  emits: ['toggleLeftSidebar'],
 });
 </script>
 
 <template>
   <div class="header">
-    <AppIcon class="fas fa-bars app-icon_lg" />
+    <AppIcon class="fas fa-bars app-icon_lg" @click="$emit('toggleLeftSidebar')"/>
     <div class="header__logo">Logo</div>
     <AppInput class="header__search" placeholder="Search in mail...">
       <template #left-icon>

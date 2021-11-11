@@ -13,14 +13,24 @@ export default defineComponent({
     MailboxMessages,
     MailboxSidebarRight,
   },
+  data() {
+    return {
+      isOpenedLeftSidebar: true,
+    };
+  },
+  methods: {
+    toggleLeftSidebar() {
+      this.isOpenedLeftSidebar = !this.isOpenedLeftSidebar;
+    },
+  },
 });
 </script>
 
 <template>
   <div class="mailbox">
-    <MailboxHeader />
+    <MailboxHeader v-on:toggleLeftSidebar="toggleLeftSidebar()"/>
     <div class="d-flex h-100">
-      <MailboxSidebarLeft />
+      <MailboxSidebarLeft :opened="isOpenedLeftSidebar" />
       <MailboxMessages />
       <MailboxSidebarRight />
     </div>
