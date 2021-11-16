@@ -21,6 +21,9 @@ export default defineComponent<unknown, unknown, Data>({
     AppFormField,
     SignLayout,
   },
+  created() {
+    document.title = 'Sign In';
+  },
   data() {
     return {
       form: {

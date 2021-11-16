@@ -13,6 +13,9 @@ export default defineComponent({
     MailboxMessages,
     MailboxSidebarRight,
   },
+  created() {
+    document.title = 'Mailbox';
+  },
   data() {
     return {
       isOpenedLeftSidebar: true,

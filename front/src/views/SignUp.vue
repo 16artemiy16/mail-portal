@@ -4,6 +4,9 @@ import SignLayout from '@/layouts/SignLayout.vue';
 
 export default defineComponent({
   name: 'SignUp',
+  created() {
+    document.title = 'Sign Up';
+  },
   components: {
     SignLayout,
   },
