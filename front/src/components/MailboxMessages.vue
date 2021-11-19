@@ -1,24 +1,15 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { MessageI } from '@/interfaces/message.interface';
 import MailboxMessageItem from '@/components/MailboxMessageItem.vue';
+import { messages } from '@/store/sandboxes/mailbox.sandbox';
 
 export default defineComponent({
   name: 'MailboxMessages',
   components: {
     MailboxMessageItem,
   },
-  data() {
-    return {
-      messages: new Array(50).fill(null).map((_, i) => ({
-        id: `${i}`,
-        topic: `Message number ${i}`,
-        isFavourite: false,
-        isUnread: i % 2 === 0,
-        from: 'admin@test.com',
-        date: new Date(),
-      })) as MessageI[],
-    };
+  computed: {
+    messages,
   },
 });
 </script>

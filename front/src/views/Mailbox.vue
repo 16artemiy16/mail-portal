@@ -1,12 +1,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { mapActions, mapMutations, mapState } from 'vuex';
 
 import MailboxHeader from '@/components/MailboxHeader.vue';
 import MailboxSidebarLeft from '@/components/MailboxSidebarLeft.vue';
 import MailboxMessages from '@/components/MailboxMessages.vue';
 import MailboxSidebarRight from '@/components/MailboxSidebarRight.vue';
-import { StateI } from '@/store';
+
+import { isLeftSidebarExpanded } from '@/store/sandboxes/mailbox.sandbox';
 
 export default defineComponent({
   name: 'Mailbox',
@@ -20,19 +20,14 @@ export default defineComponent({
     document.title = 'Mailbox';
   },
   computed: {
-    ...mapState({
-      isLeftSidebarExpanded: (state) => (state as StateI).mailbox.isLeftSidebarExpanded,
-    }),
-  },
-  methods: {
-    ...mapMutations('mailbox', ['toggleLeftSidebar']),
+    isLeftSidebarExpanded,
   },
 });
 </script>
 
 <template>
   <div class="mailbox">
-    <MailboxHeader v-on:toggleLeftSidebar="toggleLeftSidebar()"/>
+    <MailboxHeader />
     <div class="d-flex h-100">
       <MailboxSidebarLeft :opened="isLeftSidebarExpanded" />
       <MailboxMessages />

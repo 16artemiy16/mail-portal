@@ -1,15 +1,18 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { toggleLeftSidebar } from '@/store/sandboxes/mailbox.sandbox';
 
 export default defineComponent({
   name: 'MailboxHeader',
-  emits: ['toggleLeftSidebar'],
+  methods: {
+    toggleLeftSidebar,
+  },
 });
 </script>
 
 <template>
   <div class="header">
-    <AppIcon class="fas fa-bars app-icon_lg" @click="$emit('toggleLeftSidebar')"/>
+    <AppIcon class="fas fa-bars app-icon_lg" @click="toggleLeftSidebar"/>
     <div class="header__logo">Logo</div>
     <AppInput class="header__search" placeholder="Search in mail...">
       <template #left-icon>
