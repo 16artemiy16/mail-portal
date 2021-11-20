@@ -19,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
     component: SignUp,
   },
   {
-    path: '/mail',
+    path: '/mail/:msgId?',
     name: 'Mail',
     component: Mailbox,
   },

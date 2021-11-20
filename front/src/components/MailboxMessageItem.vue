@@ -9,6 +9,11 @@ export default defineComponent({
       required: true,
     },
   },
+  methods: {
+    readMsg() {
+      this.$router.push({ name: 'Mail', params: { msgId: this.message.id } });
+    },
+  },
   computed: {
     date() {
       return this.$props.message.date.toLocaleDateString();
@@ -18,7 +23,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="message" :class="{ 'message_unread': message.isUnread }">
+  <div class="message" :class="{ 'message_unread': message.isUnread }" @click="readMsg">
     <input type="checkbox" class="message__marker" />
     <AppIcon class="far fa-star message__is-favourite" />
     <div class="message__from">{{ message.from }}</div>
