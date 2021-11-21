@@ -15,8 +15,12 @@ export default defineComponent({
   cursor: pointer;
   transition: .2s;
 
+  &_md {
+    font-size: 1.5rem;
+  }
+
   &_lg {
-    font-size: 2em;
+    font-size: 2rem;
   }
 
   &:hover {

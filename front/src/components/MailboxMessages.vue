@@ -15,23 +15,13 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="mailbox-messages">
     <MailboxMessageItem
       v-for="msg in messages"
-      class="mailbox-messages__item"
+      class="d-flex"
       :key="msg.topic"
       :message="msg"
     />
-  </div>
 </template>
 
 <style scoped lang="scss">
-  .mailbox-messages {
-    overflow: scroll;
-    flex: 1;
-
-    &__item {
-      display: flex;
-    }
-  }
 </style>

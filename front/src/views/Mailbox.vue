@@ -8,10 +8,12 @@ import MailboxSidebarRight from '@/components/MailboxSidebarRight.vue';
 import MailboxMessagePage from '@/components/MailboxMessagePage.vue';
 
 import { isLeftSidebarExpanded, selectedMsg, setSelectedMsg } from '@/store/sandboxes/mailbox.sandbox';
+import MailboxMainActions from '@/components/MailboxMainActions.vue';
 
 export default defineComponent({
   name: 'Mailbox',
   components: {
+    MailboxMainActions,
     MailboxHeader,
     MailboxSidebarLeft,
     MailboxMessages,
@@ -43,8 +45,13 @@ export default defineComponent({
     <MailboxHeader />
     <div class="d-flex h-100">
       <MailboxSidebarLeft :opened="isLeftSidebarExpanded" />
-      <MailboxMessagePage v-if="selectedMsg" :message="selectedMsg"/>
-      <MailboxMessages v-else/>
+      <div class="mailbox__main">
+        <MailboxMainActions />
+        <div class="mailbox__content">
+          <MailboxMessagePage v-if="selectedMsg" :message="selectedMsg"/>
+          <MailboxMessages v-else/>
+        </div>
+      </div>
       <MailboxSidebarRight />
     </div>
   </div>
@@ -56,5 +63,17 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     overflow: hidden;
+
+    &__main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__content {
+      overflow: scroll;
+      display: flex;
+      flex-direction: column;
+    }
   }
 </style>

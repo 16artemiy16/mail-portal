@@ -13,19 +13,14 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="msg">
     <h1>{{ message.topic }}</h1>
     <div class="msg__actions">
       <router-link :to="{ name: 'Mail' }">Back</router-link>
     </div>
     <div>{{ message.text }}</div>
-  </div>
 
 </template>
 
 <style scoped lang="scss">
-  .msg {
-    overflow: scroll;
-    flex: 1;
-  }
+
 </style>
