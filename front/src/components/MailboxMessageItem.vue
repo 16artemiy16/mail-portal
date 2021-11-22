@@ -25,7 +25,7 @@ export default defineComponent({
 <template>
   <div class="message" :class="{ 'message_unread': message.isUnread }" @click="readMsg">
     <input type="checkbox" class="message__marker" />
-    <AppIcon class="far fa-star message__is-favourite" />
+    <AppIcon weight="r" name="star" class="message__is-favourite" />
     <div class="message__from">{{ message.from }}</div>
     <div class="message__topic">{{ message.topic }}</div>
     <div class="message__date">{{ date }}</div>

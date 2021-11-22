@@ -8,7 +8,7 @@ export default defineComponent({
 
 <template>
   <div class="mailbox-actions">
-    <AppIcon class="fas fa-arrow-left app-icon_md" />
+    <AppIcon name="arrow-left" size="md" />
   </div>
 </template>
 

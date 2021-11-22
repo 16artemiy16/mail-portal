@@ -12,17 +12,17 @@ export default defineComponent({
 
 <template>
   <div class="header">
-    <AppIcon class="fas fa-bars app-icon_lg" @click="toggleLeftSidebar"/>
+    <AppIcon name="bars" size="lg" @click="toggleLeftSidebar" />
     <div class="header__logo">Logo</div>
     <AppInput class="header__search" placeholder="Search in mail...">
       <template #left-icon>
-        <AppIcon class="fas fa-search"></AppIcon>
+        <AppIcon name="search" />
       </template>
     </AppInput>
     <div class="flex-spacer"></div>
-    <AppIcon class="far fa-question-circle app-icon_lg mx-2" />
-    <AppIcon class="fas fa-cog app-icon_lg mx-2" />
-    <AppIcon class="fas fa-user-circle app-icon_lg mx-2" />
+    <AppIcon weight="r" size="lg" name="question-circle" class="mx-2" />
+    <AppIcon size="lg" name="cog" class="mx-2" />
+    <AppIcon size="lg" name="user-circle" class="mx-2" />
   </div>
 </template>
 
