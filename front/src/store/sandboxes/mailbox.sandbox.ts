@@ -1,7 +1,12 @@
 import { createNamespacedHelpers } from 'vuex';
 import { MAILBOX_NAMESPACE, SET_SELECTED_MSG, TOGGLE_LEFT_SIDEBAR } from '@/store/mailbox.store';
 
-const { mapState, mapMutations, mapGetters } = createNamespacedHelpers(MAILBOX_NAMESPACE);
+const {
+  mapState,
+  mapMutations,
+  mapGetters,
+  mapActions,
+} = createNamespacedHelpers(MAILBOX_NAMESPACE);
 
 // Methods
 export const {
@@ -19,3 +24,8 @@ export const {
 export const {
   selectedMsg,
 } = mapGetters(['selectedMsg']);
+
+// Actions
+export const {
+  fetchMsgs,
+} = mapActions(['fetchMsgs']);

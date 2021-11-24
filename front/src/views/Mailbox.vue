@@ -7,7 +7,12 @@ import MailboxMessages from '@/components/MailboxMessages.vue';
 import MailboxSidebarRight from '@/components/MailboxSidebarRight.vue';
 import MailboxMessagePage from '@/components/MailboxMessagePage.vue';
 
-import { isLeftSidebarExpanded, selectedMsg, setSelectedMsg } from '@/store/sandboxes/mailbox.sandbox';
+import {
+  fetchMsgs,
+  isLeftSidebarExpanded,
+  selectedMsg,
+  setSelectedMsg,
+} from '@/store/sandboxes/mailbox.sandbox';
 import MailboxMainActions from '@/components/MailboxMainActions.vue';
 
 export default defineComponent({
@@ -22,6 +27,7 @@ export default defineComponent({
   },
   created() {
     document.title = 'Mailbox';
+    this.fetchMsgs();
   },
   computed: {
     isLeftSidebarExpanded,
@@ -29,6 +35,7 @@ export default defineComponent({
   },
   methods: {
     setSelectedMsg,
+    fetchMsgs,
   },
   watch: {
     '$route.params.msgId': {
