@@ -18,6 +18,9 @@ export default defineComponent({
       default: 'md',
       validator: (val: string) => ['lg', 'md'].includes(val),
     },
+    to: {
+      type: Object,
+    },
   },
   computed: {
     cls() {
@@ -28,11 +31,19 @@ export default defineComponent({
       return [weightCls, sizeCls, iconCls];
     },
   },
+  methods: {
+    onClick() {
+      const { to } = this.$props;
+      if (to) {
+        this.$router.push(to);
+      }
+    },
+  },
 });
 </script>
 
 <template>
-  <i class="app-icon" :class="cls" />
+  <i class="app-icon" :class="cls" @click="onClick" />
 </template>
 
 <style scoped lang="scss">
