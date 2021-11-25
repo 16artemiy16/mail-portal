@@ -39,8 +39,9 @@ export default defineComponent({
   },
   watch: {
     '$route.params.msgId': {
-      handler(newMsgId) {
-        this.setSelectedMsg(newMsgId || null);
+      immediate: true,
+      handler(msgId) {
+        this.setSelectedMsg(msgId);
       },
     },
   },

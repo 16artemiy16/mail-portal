@@ -27,8 +27,8 @@ export const mailboxStore = {
     [SET_MSGS]: (state: MailboxStateI, messages: MessageI[]): void => {
       state.messages = messages;
     },
-    [SET_SELECTED_MSG]: (state: MailboxStateI, id: string | null): void => {
-      state.selectedMsgId = id;
+    [SET_SELECTED_MSG]: (state: MailboxStateI, id: string | null | undefined): void => {
+      state.selectedMsgId = id || null;
     },
   },
   getters: {
