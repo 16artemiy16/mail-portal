@@ -5,4 +5,5 @@ export interface MessageI {
   isUnread: boolean;
   from: string;
   date: Date;
+  body: string;
 }
