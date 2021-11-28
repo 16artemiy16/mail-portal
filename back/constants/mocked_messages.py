@@ -9,6 +9,7 @@ def _form_msg_by_num(i):
         'isUnread': (i + 1) % 2 == 0,
         'from': 'admin@test.com',
         'date': datetime.date.today(),
+        'body': f'Hello! This is a message # {i + 1}. This is a text message and you don\'t need to reply it!'
     }
 
 
