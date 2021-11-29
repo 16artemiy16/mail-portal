@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -7,6 +7,10 @@ export default defineComponent({
     modelValue: {
       type: String,
       default: '',
+    },
+    size: {
+      default: 'md',
+      validator: (val: string) => ['sm', 'md', 'lg'].includes(val),
     },
   },
   computed: {
@@ -18,6 +22,9 @@ export default defineComponent({
         this.$emit('update:modelValue', value);
       },
     },
+    classList() {
+      return `app-input_${this.$props.size}`;
+    },
   },
   methods: {
     focus() {
@@ -28,7 +35,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="app-input" @click="focus()">
+  <div class="app-input" :class="classList" @click="focus()">
     <div class="app-input__icon" @click.stop="">
       <slot name="left-icon"></slot>
     </div>
@@ -47,7 +54,18 @@ export default defineComponent({
     display: flex;
     border: 1px $grey solid;
     border-radius: 4px;
-    padding: 1em;
+
+    &_lg {
+      padding: 1rem;
+    }
+
+    &_md {
+      padding: 0.5rem;
+    }
+
+    &_sm {
+      padding: 0.25rem;
+    }
 
     &__icon {
       display: flex;
