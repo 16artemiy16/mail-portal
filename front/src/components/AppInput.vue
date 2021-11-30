@@ -18,7 +18,7 @@ export default defineComponent({
       get() {
         return this.modelValue;
       },
-      set(value) {
+      set(value: string) {
         this.$emit('update:modelValue', value);
       },
     },
@@ -28,7 +28,7 @@ export default defineComponent({
   },
   methods: {
     focus() {
-      this.$refs.input.focus();
+      (this.$refs.input as HTMLElement).focus();
     },
   },
 });
