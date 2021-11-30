@@ -29,7 +29,8 @@ def auth():
     password = request.json.get('password')
     user = UserModel.get_by_email(email)
     if user and user['password'] == password:
-        token = create_access_token(identity=email)
+        additional_claims = {'id': user['id'], 'email': user['email']}
+        token = create_access_token(identity=user['id'], additional_claims=additional_claims)
         return {'token': token}, 200
     return {'success': False, 'msg': 'Wrong email or password'}, 400
 
