@@ -3,14 +3,15 @@ import { defineComponent } from 'vue';
 import SignLayout from '@/layouts/SignLayout.vue';
 import AppFormField from '@/components/AppFormItem.vue';
 import { minLength, notEmpty, validate } from '@/utils/validator.util';
+import authService from '@/services/auth.service';
 
 type Data = {
   form: {
-    login: string;
+    email: string;
     password: string;
   };
   errors: {
-    login: string | null;
+    email: string | null;
     password: string | null;
   };
 };
@@ -27,22 +28,31 @@ export default defineComponent<unknown, unknown, Data>({
   data() {
     return {
       form: {
-        login: '',
+        email: '',
         password: '',
       },
       errors: {
-        login: null,
+        email: null,
         password: null,
       },
     };
   },
   methods: {
-    submit() {
-      const { messages } = validate(this.form, {
-        login: [notEmpty],
+    async submit() {
+      const { isValid, messages } = validate(this.form, {
+        email: [notEmpty],
         password: [minLength(6)],
       });
       this.errors = { ...messages };
+      if (isValid) {
+        const { email, password } = this.form;
+        try {
+          await authService.auth({ email, password });
+          await this.$router.push({ name: 'Mail' });
+        } catch (err) {
+          this.errors = { ...messages, email: err.msg };
+        }
+      }
     },
   },
 });
@@ -50,11 +60,11 @@ export default defineComponent<unknown, unknown, Data>({
 
 <template>
   <SignLayout>
-    <form class="sign-in" @submit.prevent="">
+    <form class="sign-in" @submit.prevent="submit()">
       <h1>Sign In</h1>
       <AppFormField class="sign-in__row">
-        <AppInput placeholder="Login" v-model="form.login"/>
-        <template #error v-if="errors.login">{{ errors.login }}</template>
+        <AppInput placeholder="Login" v-model="form.email"/>
+        <template #error v-if="errors.email">{{ errors.email }}</template>
       </AppFormField>
       <AppFormField class="sign-in__row">
         <AppInput
@@ -66,7 +76,7 @@ export default defineComponent<unknown, unknown, Data>({
       </AppFormField>
       <div class="sign-in__row sign-in__actions">
         <AppButton :link="{ name: 'SignUp' }" :view="'text'">Sign Up</AppButton>
-        <AppButton @click.prevent="submit">Sign In</AppButton>
+        <AppButton>Sign In</AppButton>
       </div>
     </form>
   </SignLayout>
