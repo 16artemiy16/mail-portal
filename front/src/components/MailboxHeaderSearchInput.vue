@@ -32,16 +32,16 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="mail-search" v-click-outside="toggleSettings(false)">
+  <div class="mail-search" v-click-outside:[areSettingsOpened]="() => toggleSettings(false)">
     <AppInput placeholder="Search in mail..." size="lg">
       <template #left-icon>
         <AppIcon name="search" />
       </template>
       <template #right-icon>
-        <AppIcon name="sliders-h" @click="toggleSettings()" />
+        <AppIcon name="sliders-h" @click="() => toggleSettings()" />
       </template>
     </AppInput>
-    <div class="settings" v-if="areSettingsOpened">
+    <div class="settings" v-show="areSettingsOpened">
       <div class="settings__row" v-for="item in settings" :key="item.id">
         <label :for="item.id" class="settings__label">{{ item.label }}</label>
         <AppInput size="sm" :id="item.id" class="settings__input" />
