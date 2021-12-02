@@ -4,10 +4,10 @@ from flask_jwt_extended import JWTManager, create_access_token
 
 from models.User import UserModel
 from constants.mocked_messages import MOCKED_MESSAGES
+from config import DevConfig
 
 app = Flask(__name__)
-app.config['CORS_HEADERS'] = 'Content-Type'
-app.config["JWT_SECRET_KEY"] = "super-secret"
+app.config.from_object(DevConfig)
 cors = CORS(app)
 
 jwt = JWTManager(app)
@@ -37,4 +37,4 @@ def auth():
 
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    app.run(port=5000)
